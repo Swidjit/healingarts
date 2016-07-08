@@ -33,6 +33,8 @@ gem 'formtastic', '~> 3.0'
 gem 'foundation-rails', '5.4.5'
 gem 'foundation-icons-sass-rails'
 
+gem 'devise'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
