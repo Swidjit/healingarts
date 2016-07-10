@@ -1,0 +1,30 @@
+.row#your-shifts
+  %h4 Select any 6 shifts to work simply by clicking on them. Once a shift is selected you can cancel it by clicking again.
+  -if @shifts.present?
+    =render @shifts
+.row
+  .large-1.columns
+    hey
+  .large-11.columns
+
+    .row
+      -Station.all.each do |station|
+        .large-3.columns
+          %h4=station.name
+          -station.shifts.each do |shift|
+            .take-shift[shift]{:value=> shift.id, :class => current_user.shifts.include?(shift) ? 'selected' : 'unselected'} #{shift.start_time.strftime('%l%P')}-#{shift.end_time.strftime('%l%P')}
+:javascript
+
+  $('.take-shift').on('click', function() {
+    $.get('/shifts/'+$(this).attr('value')+'/select');
+  });
+
+#complete.reveal-modal.remove-whitespace{"data-reveal" => ""}
+  %h3 You have filled in all your shifts, thanks!
+  %p You may change them at any point up until the morning of the festival.  Just click on the shifts you no longer want and you will then be able to add a replacement.
+  %a.close-reveal-modal ×
+
+#incomplete.reveal-modal.remove-whitespace{"data-reveal" => ""}
+  %h3 You just cancelled a shift and no longer meet the necessary volunteering requirements
+  %p You must sign up for 6 shifts (12 hours).  Please add another shift by clicking on it.
+  %a.close-reveal-modal ×

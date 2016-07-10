@@ -1,0 +1,5 @@
+$('#shift_#{@shift.id}').addClass('selected');
+
+$('#shift_#{@shift.id}').removeClass('unselected');
+
+$('#your-shifts').html('#{j render @shifts}');

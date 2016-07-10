@@ -1,0 +1,9 @@
+$('#shift_#{@shift.id}').removeClass('selected');
+
+$('#shift_#{@shift.id}').addClass('unselected');
+
+$('#your-shifts').html('#{j render @shifts}');
+
+$('#incomplete').foundation('reveal','open');
+
+$('.unselected').css('opacity','1');

@@ -1,0 +1,2 @@
+.your-shift{:class=>'your-shift-#{shift.id}'}
+  %p #{shift.station.name} #{shift.start_time.strftime('%a')} #{shift.start_time.strftime('%l')}-#{shift.end_time.strftime('%l')}
