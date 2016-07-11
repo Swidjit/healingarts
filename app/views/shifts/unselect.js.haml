@@ -3,4 +3,4 @@ $('#shift_#{@shift.id}').removeClass('selected');
 $('#shift_#{@shift.id}').addClass('unselected');
 
 $('#your-shifts').html('#{j render @shifts}');
-$('.shift-count').html('('+@user_hours +'/12)');
+$('.shift-count').html('(#{@user_hours}/12)');

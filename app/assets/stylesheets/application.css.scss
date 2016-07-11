@@ -15,10 +15,18 @@
  *= require foundation
  */
 
+#header {
+	height: 55px;
+	background-color: #518946;
+	h3 {
+		color: #fff;
+		height: 55px;
+	}
+}
 .take-shift {
 	margin-bottom: 2px;
-	padding: 2px 5px;
-	opacity: .8;
+	padding: 2px 8px;
+	opacity: .95;
 	height: 30px;
 }
 .empty-shift {
@@ -47,11 +55,11 @@
 }
 
 .selected {
-	background-color: red;
+	background-color: #f4333d;
 	color:white;
 }
 .unselected {
-	background-color: green;
+	background-color: #518946;
 }
 .shifts {
 	padding: 3px;
@@ -62,7 +70,7 @@
 	top: 0px;
 	right: 5px;
 	padding: 2px 6px;
-	background-color: blue;
+	background-color: #f4333d;
 	color: #eee;
 
 }
@@ -71,7 +79,7 @@
 	height: 25px;
 	font-weight: bold;
 	padding: 3px 6px;
-	background-color: yellow;
+	background-color: #e7b349;
 	margin-bottom: 2px;
 	width: 100%;
 	display: block;

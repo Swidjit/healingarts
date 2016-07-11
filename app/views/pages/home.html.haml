@@ -18,15 +18,18 @@
       %h4 Your shifts
       .shift-count 0/6
       #your-shifts
-        click on shifts to claim them
+
         -if @shifts.present?
           =render @shifts
+        -else
+          click on shifts to claim them
     -Station.all.each do |station|
       .large-3.columns.shifts
         %h4=station.name
         -station.shifts.order(:start_time).each do |shift|
           -if @available_shifts.include?(shift)
             .take-shift[shift]{:value=> shift.id, :class => current_user.shifts.include?(shift) ? 'selected' : 'unselected'} #{shift.start_time.strftime('%l%P')}-#{shift.end_time.strftime('%l%P')}
+
 
 
   :javascript
