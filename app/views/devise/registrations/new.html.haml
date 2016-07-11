@@ -23,7 +23,9 @@
           %label (Optional) Name of business where you practice
           = f.text_field :business
           %label What skill are you offering
-          = f.text_field :skill
+          =f.select :skill,  ['','Massage Therapist', 'Chiropractor', 'Other' ], {}, { :class => ''}
+          %input{:type => 'text', :id => 'user-skill-manual', :style => 'display:none;', :placeholder => 'Product Name'}
+
         %div
           %label Does your practice require a massage table/chair?
           =f.select :needs_table,  ['',['No, I can practice without special equipment.',:true],['Yes, I would like to have access to a table.',:true] ], {}, { :class => '' }
@@ -45,9 +47,25 @@
     });
 
     $('#submit').on('click', function(e) {
+
+      if($('#user-skill-manual').val().length > 0) {
+        $('#user_skill').append($('<option>', {
+            value: $('#user-skill-manual').val(),
+            text: $('#user-skill-manual').val()
+        }));
+        $('#user_skill').val($('#user-skill-manual').val());
+      }
       //e.preventDefault();
     });
 
+    $('#user_skill').change(function(){
+        if(this.value == "Other") {
+          $('#user-skill-manual').show();
+        }
+        else {
+
+        }
+    });
   });
 
 
