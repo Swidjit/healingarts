@@ -2,16 +2,18 @@ namespace :init do
 
   task :seed_shifts => :environment do
     Shift.delete_all
-    Station.all.each do |loc|
-      a = loc.hours[0].split('-')[0].to_i
-      b = loc.hours[0].split('-')[1].to_i
-      puts a,b
-      (a..b).step(2) do |n|
-        start_time = DateTime.new(2016, 7, 22, n, 0, 0)
-        end_time = start_time + 2.hours
-        Shift.create(:station=>loc, :start_time => start_time, :end_time => end_time, :table_max=> loc.tables, :roamer_max =>loc.roamers)
-      end
+    (21..24).step(1) do |day|
+      Station.all.each do |loc|
+        a = loc.hours[0].split('-')[0].to_i
+        b = loc.hours[0].split('-')[1].to_i
+        puts a,b
+        (a..b).step(2) do |n|
+          start_time = DateTime.new(2016, 7, day, n, 0, 0)
+          end_time = start_time + 2.hours
+          Shift.create(:station=>loc, :start_time => start_time, :end_time => end_time, :table_max=> loc.tables, :roamer_max =>loc.roamers)
+        end
 
+      end
     end
 
 

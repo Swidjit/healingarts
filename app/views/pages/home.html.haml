@@ -23,14 +23,22 @@
           =render @shifts
         -else
           click on shifts to claim them
-    -Station.all.each do |station|
-      .large-3.columns.shifts
-        %h4=station.name
-        -station.shifts.order(:start_time).each do |shift|
-          -if @available_shifts.include?(shift)
-            .take-shift[shift]{:value=> shift.id, :class => current_user.shifts.include?(shift) ? 'selected' : 'unselected'} #{shift.start_time.strftime('%l%P')}-#{shift.end_time.strftime('%l%P')}
+    .large-9.columns
+      .row{:style=>'margin-left: 10px;'}
+        -dates = ['july 21 2016','july 22 2016','july 23 2016','july 24 2016']
+        -dates.each do |d|
+          -date = Date.parse(d)
+          %h4=date.strftime('%A')
+          -Station.all.each do |station|
+            .large-4.columns.shifts
+              %h5=station.name
 
 
+              -station.shifts.where(start_time: date.midnight..date.end_of_day).each do |shift|
+                -if @available_shifts.include?(shift)
+                  .take-shift[shift]{:value=> shift.id, :class => current_user.shifts.include?(shift) ? 'selected' : 'unselected'} #{shift.start_time.strftime('%l%P')}-#{shift.end_time.strftime('%l%P')}
+
+          %hr
 
   :javascript
 

@@ -28,6 +28,8 @@ gem 'pg'
 gem 'haml-rails'
 # Use jquery as the JavaScript library
 
+gem 'groupdate'
+
 gem 'formtastic', '~> 3.0'
 
 gem 'foundation-rails', '5.4.5'
