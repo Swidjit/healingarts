@@ -2,10 +2,10 @@
 .row
 
   .login-form
-    %h3 create a new account
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = devise_error_messages!
       .large-6.columns
+        %h4 Login Info
         %div
           = f.label :email
           = f.email_field :email, autofocus: true
@@ -15,9 +15,9 @@
         %div
           = f.label :password_confirmation
           = f.password_field :password_confirmation, autocomplete: "off"
-      .large-6.columns
+      .large-6.columns{:style=>'background-color:gray;'}
         %div
-          %h4 The following info will appear on schedule
+          %h5 The following info will appear on schedule
           Your Name
           = f.text_field :name
           %label (Optional) Name of business where you practice

@@ -53,6 +53,19 @@
 .unselected {
 	background-color: green;
 }
+.shifts {
+	padding: 3px;
+	background-color: #bbb;
+}
+.shift-count {
+	position: absolute;
+	top: 0px;
+	right: 5px;
+	padding: 2px 6px;
+	background-color: blue;
+	color: #eee;
+
+}
 
 .your-shift {
 	height: 25px;
@@ -60,5 +73,6 @@
 	padding: 3px 6px;
 	background-color: yellow;
 	margin-bottom: 2px;
-	display: inline-block;
+	width: 100%;
+	display: block;
 }

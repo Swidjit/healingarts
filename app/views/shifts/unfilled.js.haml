@@ -7,3 +7,4 @@ $('#your-shifts').html('#{j render @shifts}');
 $('#incomplete').foundation('reveal','open');
 
 $('.unselected').css('opacity','1');
+$('.shift-count').html('('+@user_hours +'/12)');
