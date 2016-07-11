@@ -18,8 +18,13 @@
 .take-shift {
 	margin-bottom: 2px;
 	padding: 2px 5px;
-	border: 1px solid red;
 	opacity: .8;
+	height: 30px;
+}
+.empty-shift {
+	margin-bottom: 2px;
+	background-color: gray;
+	height: 30px;
 }
 
 .take-shift:hover {
@@ -42,10 +47,11 @@
 }
 
 .selected {
-	background-color: green;
+	background-color: red;
+	color:white;
 }
 .unselected {
-	background-color: red;
+	background-color: green;
 }
 
 .your-shift {

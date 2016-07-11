@@ -3,16 +3,16 @@
   -if @shifts.present?
     =render @shifts
 .row
-  .large-1.columns
-    hey
   .large-11.columns
 
     .row
       -Station.all.each do |station|
-        .large-3.columns
+        .large-4.columns
           %h4=station.name
-          -station.shifts.each do |shift|
-            .take-shift[shift]{:value=> shift.id, :class => current_user.shifts.include?(shift) ? 'selected' : 'unselected'} #{shift.start_time.strftime('%l%P')}-#{shift.end_time.strftime('%l%P')}
+          -station.shifts.order(:start_time).each do |shift|
+            -if @available_shifts.include?(shift)
+              .take-shift[shift]{:value=> shift.id, :class => current_user.shifts.include?(shift) ? 'selected' : 'unselected'} #{shift.start_time.strftime('%l%P')}-#{shift.end_time.strftime('%l%P')}
+
 :javascript
 
   $('.take-shift').on('click', function() {

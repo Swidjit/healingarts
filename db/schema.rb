@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160710231540) do
+ActiveRecord::Schema.define(version: 20160711001102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 20160710231540) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer  "station_id"
+    t.integer  "table_count",  default: 0
+    t.integer  "roamer_count", default: 0
+    t.integer  "table_max"
+    t.integer  "roamer_max"
   end
 
   create_table "shifts_users", id: false, force: :cascade do |t|

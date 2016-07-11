@@ -22,4 +22,14 @@ namespace :init do
 
   end
 
+  task :add_table_limits => :environment do
+    Station.all.each do |sta|
+      sta.shifts.each do |shift|
+        shift.table_max = sta.tables
+        shift.roamer_max = sta.roamers
+        shift.save
+      end
+    end
+  end
+
 end
