@@ -28,6 +28,19 @@
 	opacity: 1;
 }
 
+.login-form {
+  background-color: #eee;
+  padding: 9px 15px;
+  label {
+    margin-bottom: 3px;
+  }
+  input {
+    font-size: 17px;
+    margin-bottom: 7px;
+  }
+  margin-top: 25px;
+}
+
 .selected {
 	background-color: green;
 }

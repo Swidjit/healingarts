@@ -1,0 +1,53 @@
+
+.row
+
+  .login-form
+    %h3 create a new account
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      .large-6.columns
+        %div
+          = f.label :email
+          = f.email_field :email, autofocus: true
+        %div
+          = f.label :password
+          = f.password_field :password, autocomplete: "off"
+        %div
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation, autocomplete: "off"
+      .large-6.columns
+        %div
+          %h4 The following info will appear on schedule
+          Your Name
+          = f.text_field :name
+          %label (Optional) Name of business where you practice
+          = f.text_field :business
+          %label What skill are you offering
+          = f.text_field :skill
+        %div
+          %label Does your practice require a massage table/chair?
+          =f.select :needs_table,  ['',['No, I can practice without special equipment.',:true],['Yes, I would like to have access to a table.',:true] ], {}, { :class => '' }
+
+
+      %div{:style => "clear:both;text-align:center;padding-top: 10px;"}
+        %div= f.submit "Sign up", :class => "button hidden", :id => 'submit', :style=>"display:none"
+        = render "devise/shared/links"
+:css
+  #terms {
+    float:left;
+  }
+
+:javascript
+  $(document).on('ready page:load', function(){
+
+    $('#user_needs_table').change(function(){
+        $('#submit').show();
+    });
+
+    $('#submit').on('click', function(e) {
+      //e.preventDefault();
+    });
+
+  });
+
+
